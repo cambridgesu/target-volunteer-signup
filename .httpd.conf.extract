@@ -1,0 +1,36 @@
+# Target volunteer signup system Apache directives
+
+# Load using:
+#	# Target volunteer signup system
+#	Include /path/to/target-volunteer-signup/.httpd.conf.extract
+#	Use MacroTargetVolunteerSignup /prospective/target/volunteers/signup /path/to/target-volunteer-signup "/path/to/site/:/path/to/target-volunteer-signup/:/path/to/php/libraries/"
+
+
+<Macro MacroTargetVolunteerSignup $baseUrl $repositoryPath $includePath>
+
+        # Include path
+        <LocationMatch $baseUrl>
+                php_value include_path "$includePath"
+        </LocationMatch>
+	
+	#!# NB Currently doesn't use FrontControllerApplication framework, so no need to load that macro
+	
+	# Application routing
+	RewriteRule ^$baseUrl/(details|schools|locate|areas|message|information|edit|feedback|volunteers|allschools|addschool|signups|editschool|loggedout).html $baseUrl/index.html?action=$1 [L,QSA]
+	
+	# Auth, using Raven
+	<Location $baseUrl/>
+		Deny from all
+		AuthType Ucam-WebAuth
+		Require valid-user
+		AADescription "Target volunteer signup facility"
+	</Location>
+	<Location $baseUrl/logout.html>
+		SetHandler AALogout
+		AALogoutMsg $baseUrl/loggedout.html
+	</Location>
+	
+	# Assets
+	Alias $baseUrl/images $repositoryPath/images
+	
+</Macro>

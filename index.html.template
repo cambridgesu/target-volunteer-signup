@@ -1,0 +1,14 @@
+<?php
+
+# Configuration
+$config = array (
+	'username' => 'database_username_here',
+	'password' => 'database_password_here',
+	'tipsUrl' => '/path/to/tips/pages/'
+);
+
+# Load and run the Target volunteer signup system with the supplied settings
+require_once ('targetVolunteerSignup.php');
+new targetVolunteerSignup ($config);
+
+?>

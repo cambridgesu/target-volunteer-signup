@@ -1,0 +1,12 @@
+#signupmenu {float: right; margin-top: 0; margin-left: 5px; height: 200px; width: 155px; border-left: 1px solid #ddd; padding-left: 5px;}
+#signupmenu ul {text-align: left; margin: 10px; padding: 0; list-style: none;}
+#signupmenu ul li {padding-left: 30px; border-bottom: 1px solid #eee; background: url(images/arrow.jpg) no-repeat 10px center;}
+#signupmenu ul li a {border-bottom: 0; display: block;}
+#signupmenu ul li a:link, #signupmenu ul li a:visited {border-bottom: 0;}	/* Due to IE7pre-beta2 being picky */
+#signupmenu p {text-align: center; color: #bbb; margin-top: 2em; line-height: 1.4em;}
+h2.personal, h2.personal {background: url(images/personal.jpg) no-repeat; padding-left: 33px; height: 29px;}
+h2.locator {background: url(images/search.jpg) no-repeat; padding-left: 33px; height: 29px;}
+h2.edit {background: url(images/edit.jpg) no-repeat; padding-left: 33px; height: 29px;}
+h2.questionnaire {background: url(images/questionnaire.gif) no-repeat; padding-left: 33px; height: 29px;}
+h2.schools {background: url(images/schools.jpg) no-repeat; padding-left: 33px; height: 29px;}
+span.requested, tr.requested td {background-color: #cff;}
